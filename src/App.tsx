@@ -3,6 +3,7 @@ import './App.css';
 import { data } from './data/data';
 import { Todos } from './components/Todos';
 import type { Todo } from './models/Todo';
+import { AddTodoForm } from './components/AddTodoForm';
 
 function App() {
   const [todo, setTodo] = useState<Todo[]>(data);
@@ -28,7 +29,8 @@ function App() {
         todos={todo}
         deleteTodo={deleteTodo}
         toggleIsCompleted={toggleIsCompleted}
-      />
+        />
+        <AddTodoForm/>
     </>
   );
 }
