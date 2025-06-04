@@ -18,9 +18,9 @@ export const TodoPresentation = ({ todo, deleteTodo, toggleIsCompleted }: TodoPr
       </div>
       <div>
         <input
+          name='isCompleted'
           type="checkbox"
           checked={todo.isCompleted}
-          readOnly
           className="w-5 h-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
           onChange={() => {toggleIsCompleted(todo.id)}}
         />
