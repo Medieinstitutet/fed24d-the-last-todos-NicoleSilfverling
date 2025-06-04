@@ -3,8 +3,9 @@ import type { Todo } from '../models/Todo';
 type TodoPresentationProps = {
   todo: Todo;
   deleteTodo: (id:number) => void;
+  toggleIsCompleted: (id:number) => void;
 };
-export const TodoPresentation = ({ todo, deleteTodo }: TodoPresentationProps) => {
+export const TodoPresentation = ({ todo, deleteTodo, toggleIsCompleted }: TodoPresentationProps) => {
   return (
     <div className="bg-white shadow-md rounded-md p-4 mb-4 flex items-center justify-between">
       <div>
@@ -21,6 +22,7 @@ export const TodoPresentation = ({ todo, deleteTodo }: TodoPresentationProps) =>
           checked={todo.isCompleted}
           readOnly
           className="w-5 h-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+          onChange={() => {toggleIsCompleted(todo.id)}}
         />
       </div>
     </div>
