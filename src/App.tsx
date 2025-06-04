@@ -8,8 +8,6 @@ import { AddTodoForm } from './components/AddTodoForm';
 function App() {
   const [todos, setTodos] = useState<Todo[]>(data);
 
-  console.log(todos);
-
   const addTodo = (todo: Todo) => {
     setTodos([...todos, todo]);
   };

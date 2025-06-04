@@ -20,7 +20,14 @@ export const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    addTodo(todo);
+
+    // Updates id when submitting
+    const updatedTodo = {
+      ...todo,
+      id: Date.now(),
+    };
+
+    addTodo(updatedTodo);
   };
   return (
     <form
