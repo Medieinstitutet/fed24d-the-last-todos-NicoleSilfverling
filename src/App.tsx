@@ -6,15 +6,21 @@ import type { Todo } from './models/Todo';
 import { AddTodoForm } from './components/AddTodoForm';
 
 function App() {
-  const [todo, setTodo] = useState<Todo[]>(data);
+  const [todos, setTodos] = useState<Todo[]>(data);
+
+  console.log(todos);
+
+  const addTodo = (todo: Todo) => {
+    setTodos([...todos, todo]);
+  };
 
   const deleteTodo = (id: number) => {
-    setTodo(todo.filter((todo) => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   const toggleIsCompleted = (id: number) => {
-    setTodo(
-      todo.map((todo) => {
+    setTodos(
+      todos.map((todo) => {
         if (todo.id === id) {
           return { ...todo, isCompleted: todo.isCompleted ? false : true };
         }
@@ -26,11 +32,11 @@ function App() {
   return (
     <>
       <Todos
-        todos={todo}
+        todos={todos}
         deleteTodo={deleteTodo}
         toggleIsCompleted={toggleIsCompleted}
-        />
-        <AddTodoForm/>
+      />
+      <AddTodoForm addTodo={addTodo} />
     </>
   );
 }
