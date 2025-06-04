@@ -1,7 +1,28 @@
+import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { Todo } from '../models/Todo';
+
 export const AddTodoForm = () => {
+  const [todo, setTodo] = useState<Todo>(new Todo('', '', false, new Date()));
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.type === 'text') {
+      setTodo({ ...todo, [e.target.id]: e.target.value });
+    }
+
+    if (e.target.type === 'date') {
+      setTodo({ ...todo, [e.target.id]: new Date(e.target.value) });
+    }
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
   return (
-    <form className="bg-white shadow-md rounded-md p-6 space-y-4 max-w-md mx-auto">
-      <h2>Add new todo</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white shadow-md rounded-md p-6 space-y-4 max-w-md mx-auto"
+    >
+      <h2 className="text-lg font-semibold text-gray-900">Add new todo</h2>
       <div>
         <label
           htmlFor="title"
@@ -13,6 +34,7 @@ export const AddTodoForm = () => {
           id="title"
           type="text"
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          onChange={handleChange}
         />
       </div>
 
@@ -27,20 +49,22 @@ export const AddTodoForm = () => {
           id="description"
           type="text"
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          onChange={handleChange}
         />
       </div>
 
       <div>
         <label
-          htmlFor="due-date"
+          htmlFor="dueDate"
           className="block text-sm font-medium text-gray-700"
         >
           Due date
         </label>
         <input
-          id="due-date"
+          id="dueDate"
           type="date"
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
+          onChange={handleChange}
         />
       </div>
 
