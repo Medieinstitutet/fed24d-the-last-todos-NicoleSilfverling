@@ -2,8 +2,9 @@ import type { Todo } from '../models/Todo';
 
 type TodoPresentationProps = {
   todo: Todo;
+  deleteTodo: (id:number) => void;
 };
-export const TodoPresentation = ({ todo }: TodoPresentationProps) => {
+export const TodoPresentation = ({ todo, deleteTodo }: TodoPresentationProps) => {
   return (
     <div className="bg-white shadow-md rounded-md p-4 mb-4 flex items-center justify-between">
       <div>
@@ -12,6 +13,7 @@ export const TodoPresentation = ({ todo }: TodoPresentationProps) => {
         <p className="text-sm text-gray-500">
           Due: {todo.dueDate.toLocaleDateString()}
         </p>
+        <button onClick={() => {deleteTodo(todo.id)}} className="px-2 py-2 text-xs font-medium bg-red-400 hover:bg-red-500 text-white rounded">Delete</button>
       </div>
       <div>
         <input
