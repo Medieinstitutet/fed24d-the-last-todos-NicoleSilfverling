@@ -1,9 +1,13 @@
-import "./App.css";
-import { data } from "./data/data";
+import './App.css';
+import { Todos } from './components/Todos';
+import { data } from './data/data';
 
 function App() {
-  console.log(data)
-  return <></>;
+  return (
+    <>
+      <Todos todos={data} />
+    </>
+  );
 }
 
 export default App;
