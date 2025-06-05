@@ -45,8 +45,10 @@ export const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
         <input
           id="title"
           type="text"
+          value={todo.title}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
           onChange={handleChange}
+          required
         />
       </div>
 
@@ -60,8 +62,10 @@ export const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
         <input
           id="description"
           type="text"
+          value={todo.description}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"
           onChange={handleChange}
+          required
         />
       </div>
 
@@ -75,8 +79,10 @@ export const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
         <input
           id="dueDate"
           type="date"
+          value={todo.dueDate.toISOString().split('T')[0]}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
           onChange={handleChange}
+          required
         />
       </div>
 
