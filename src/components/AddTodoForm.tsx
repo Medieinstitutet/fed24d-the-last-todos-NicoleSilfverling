@@ -28,6 +28,7 @@ export const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
     };
 
     addTodo(updatedTodo);
+    setTodo(new Todo('', '', false, new Date()))
   };
   return (
     <form
