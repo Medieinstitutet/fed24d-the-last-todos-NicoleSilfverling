@@ -43,6 +43,13 @@ function App() {
         todos={sortTodos(todos, sortOption)}
         deleteTodo={deleteTodo}
         toggleIsCompleted={toggleIsCompleted}
+        showCompleted={true}
+      />
+      <Todos
+        todos={sortTodos(todos, sortOption)}
+        deleteTodo={deleteTodo}
+        toggleIsCompleted={toggleIsCompleted}
+        showCompleted={false}
       />
       <AddTodoForm addTodo={addTodo} />
     </>
