@@ -18,12 +18,16 @@ export const Todos = ({
     (todo) => todo.isCompleted === showCompleted
   );
   return (
-    <section className="max-w-xl mx-auto p-4">
+    <section
+      className={`g-amber-100 rounded-xl shadow p-6 w-full max-w-xl mx-auto ${
+        showCompleted ? 'bg-green-100' : 'bg-yellow-50'
+      }`}
+    >
       <h2 className="text-xl font-semibold text-gray-900 mb-4">
         {showCompleted ? 'Completed Todos' : 'Pending Todos'}
       </h2>
       {filteredTodos.length === 0 && (
-        <p>
+        <p className="text-gray-500 italic">
           {showCompleted
             ? 'Nothing completed yet, keep going!'
             : 'All tasks are completed, great job!'}

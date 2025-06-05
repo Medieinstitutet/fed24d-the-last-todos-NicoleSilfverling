@@ -37,22 +37,26 @@ function App() {
   localStorage.setItem('todos', JSON.stringify(todos));
 
   return (
-    <>
-      <SortOptions sortOption={sortOption} onSortChange={onSortChange} />
-      <Todos
-        todos={sortTodos(todos, sortOption)}
-        deleteTodo={deleteTodo}
-        toggleIsCompleted={toggleIsCompleted}
-        showCompleted={true}
-      />
-      <Todos
-        todos={sortTodos(todos, sortOption)}
-        deleteTodo={deleteTodo}
-        toggleIsCompleted={toggleIsCompleted}
-        showCompleted={false}
-      />
-      <AddTodoForm addTodo={addTodo} />
-    </>
+    <div className="min-h-screen bg-sky-50">
+      <div className="max-w-6xl mx-auto p-6">
+        <SortOptions sortOption={sortOption} onSortChange={onSortChange} />
+        <div className="flex flex-col md:flex-row md:justify-center md:gap-6 my-6">
+          <Todos
+            todos={sortTodos(todos, sortOption)}
+            deleteTodo={deleteTodo}
+            toggleIsCompleted={toggleIsCompleted}
+            showCompleted={false}
+          />
+          <Todos
+            todos={sortTodos(todos, sortOption)}
+            deleteTodo={deleteTodo}
+            toggleIsCompleted={toggleIsCompleted}
+            showCompleted={true}
+          />
+        </div>
+        <AddTodoForm addTodo={addTodo} />
+      </div>
+    </div>
   );
 }
 

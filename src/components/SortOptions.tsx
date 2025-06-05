@@ -11,13 +11,13 @@ export const SortOptions = ({ sortOption, onSortChange }: SortOptionsProps) => {
           htmlFor="sort"
           className="block text-sm font-medium text-gray-700 mb-1"
         >
-          Sort by due date
+          Sort todos by:
         </label>
         <select
           id="sort"
           value={sortOption}
           onChange={(e) => onSortChange(e.target.value)}
-          className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
+          className="block w-full p-2 border bg-white border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
         >
           <option value="newest">Newest added</option>
           <option value="oldest">Oldest added</option>
