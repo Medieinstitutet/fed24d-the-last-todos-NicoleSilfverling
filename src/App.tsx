@@ -6,7 +6,22 @@ import type { Todo } from './models/Todo';
 import { AddTodoForm } from './components/AddTodoForm';
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>(data);
+
+  const getInitialTodos = (): Todo[] => {
+    const saved = localStorage.getItem("todos");
+    if (!saved) return data;
+    try {
+      return (JSON.parse(saved) as Todo[]).map((todo) => ({
+        ...todo,
+        dueDate: new Date(todo.dueDate), // Convert back to Date from string
+      }));
+    } catch {
+      return data;
+    }
+  };
+
+  const [todos, setTodos] = useState<Todo[]>(getInitialTodos);
+
 
   const addTodo = (todo: Todo) => {
     setTodos([...todos, todo]);
@@ -26,6 +41,8 @@ function App() {
       })
     );
   };
+
+  localStorage.setItem("todos", JSON.stringify(todos))
 
   return (
     <>
