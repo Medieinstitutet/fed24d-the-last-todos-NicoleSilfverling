@@ -1,27 +1,12 @@
 import { useState } from 'react';
 import './App.css';
-import { data } from './data/data';
-import { Todos } from './components/Todos';
 import type { Todo } from './models/Todo';
+import { Todos } from './components/Todos';
 import { AddTodoForm } from './components/AddTodoForm';
+import { getInitialTodos } from './utils/localStorageUtils';
 
 function App() {
-
-  const getInitialTodos = (): Todo[] => {
-    const saved = localStorage.getItem("todos");
-    if (!saved) return data;
-    try {
-      return (JSON.parse(saved) as Todo[]).map((todo) => ({
-        ...todo,
-        dueDate: new Date(todo.dueDate), // Convert back to Date from string
-      }));
-    } catch {
-      return data;
-    }
-  };
-
   const [todos, setTodos] = useState<Todo[]>(getInitialTodos);
-
 
   const addTodo = (todo: Todo) => {
     setTodos([...todos, todo]);
