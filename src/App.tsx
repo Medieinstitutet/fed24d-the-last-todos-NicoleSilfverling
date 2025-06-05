@@ -5,6 +5,7 @@ import { Todos } from './components/Todos';
 import { AddTodoForm } from './components/AddTodoForm';
 import { getInitialTodos } from './utils/localStorageUtils';
 import { SortOptions } from './components/SortOptions';
+import { sortTodos } from './utils/sortUtils';
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>(getInitialTodos);
@@ -39,7 +40,7 @@ function App() {
     <>
       <SortOptions sortOption={sortOption} onSortChange={onSortChange} />
       <Todos
-        todos={todos}
+        todos={sortTodos(todos, sortOption)}
         deleteTodo={deleteTodo}
         toggleIsCompleted={toggleIsCompleted}
       />

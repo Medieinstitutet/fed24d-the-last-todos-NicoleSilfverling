@@ -14,7 +14,7 @@ export const SortOptions = ({ sortOption, onSortChange }: SortOptionsProps) => {
           Sort by due date
         </label>
         <select
-          // id="sort"
+          id="sort"
           value={sortOption}
           onChange={(e) => onSortChange(e.target.value)}
           className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
