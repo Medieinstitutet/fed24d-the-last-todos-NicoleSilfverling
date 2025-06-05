@@ -4,9 +4,11 @@ import type { Todo } from './models/Todo';
 import { Todos } from './components/Todos';
 import { AddTodoForm } from './components/AddTodoForm';
 import { getInitialTodos } from './utils/localStorageUtils';
+import { SortOptions } from './components/SortOptions';
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>(getInitialTodos);
+  const [sortOption, setSortOption] = useState('newest');
 
   const addTodo = (todo: Todo) => {
     setTodos([...todos, todo]);
@@ -27,10 +29,15 @@ function App() {
     );
   };
 
-  localStorage.setItem("todos", JSON.stringify(todos))
+  const onSortChange = (option: string) => {
+    setSortOption(option);
+  };
+
+  localStorage.setItem('todos', JSON.stringify(todos));
 
   return (
     <>
+      <SortOptions sortOption={sortOption} onSortChange={onSortChange} />
       <Todos
         todos={todos}
         deleteTodo={deleteTodo}
