@@ -10,7 +10,13 @@ export const TodoPresentation = ({
   deleteTodo,
   toggleIsCompleted,
 }: TodoPresentationProps) => {
-  const isOverdue = !todo.isCompleted && todo.dueDate < new Date();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const dueDate = new Date(todo.dueDate);
+  dueDate.setHours(0, 0, 0, 0);
+
+  const isOverdue = !todo.isCompleted && dueDate < today;
   return (
     <div className="relative bg-white shadow-md rounded-md p-4 mb-4 flex items-center justify-between">
       {isOverdue && (
