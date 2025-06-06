@@ -33,7 +33,7 @@ export const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded-md p-6 space-y-4 max-w-md mx-auto"
+      className="bg-white shadow-md rounded-md p-6 space-y-4 max-w-md mx-auto mb-6"
     >
       <h2 className="text-lg font-semibold text-gray-900">Add new todo</h2>
       <div>

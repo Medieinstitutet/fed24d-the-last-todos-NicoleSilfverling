@@ -6,7 +6,7 @@ type SortOptionsProps = {
 export const SortOptions = ({ sortOption, onSortChange }: SortOptionsProps) => {
   return (
     <>
-      <div className="max-w-md mx-auto p-4">
+      <div className="flex flex-col">
         <label
           htmlFor="sort"
           className="block text-sm font-medium text-gray-700 mb-1"

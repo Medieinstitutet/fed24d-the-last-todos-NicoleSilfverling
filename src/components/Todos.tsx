@@ -19,7 +19,7 @@ export const Todos = ({
   );
   return (
     <section
-      className={`g-amber-100 rounded-xl shadow p-6 w-full max-w-xl mx-auto ${
+      className={`g-amber-100 rounded-md shadow p-6 w-full max-w-xl mx-auto ${
         showCompleted ? 'bg-green-100' : 'bg-yellow-50'
       }`}
     >
