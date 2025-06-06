@@ -19,4 +19,4 @@ export class Todo {
     this.dueDate = dueDate;
     this.id = id || Date.now();
   }
-} 
+}
